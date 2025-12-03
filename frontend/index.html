@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Influencer Finder</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar / Filters -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>📸 Influencer Finder</h1>
+            </div>
+
+            <form id="searchForm" onsubmit="startSearch(event)">
+                <div class="form-group">
+                    <label>Tags (comma separated)</label>
+                    <input type="text" id="tags" placeholder="gymmodel, fitnessgirl" required>
+                    <small>Search strictly by these tags</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Gender</label>
+                    <select id="gender">
+                        <option value="both">Both</option>
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Country (Optional)</label>
+                    <select id="country">
+                        <option value="">Any</option>
+                        <option value="United States">United States</option>
+                        <option value="United Kingdom">United Kingdom</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Australia">Australia</option>
+                        <option value="India">India</option>
+                        <option value="Germany">Germany</option>
+                        <option value="France">France</option>
+                        <option value="Brazil">Brazil</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Min Followers</label>
+                        <input type="number" id="minFollowers" value="1000">
+                    </div>
+                    <div class="form-group">
+                        <label>Max Followers</label>
+                        <input type="number" id="maxFollowers" value="500000">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Max Profiles to Find</label>
+                    <input type="number" id="maxProfiles" value="20" max="100">
+                </div>
+
+                <button type="submit" id="searchBtn" class="btn-primary">Start Finding</button>
+            </form>
+
+            <div class="export-section">
+                <button onclick="exportCSV()" id="exportBtn" class="btn-secondary" disabled>Download CSV</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Log Panel -->
+            <div class="log-panel" id="logPanel">
+                <div class="log-header">
+                    <span>🔴 Live Logs</span>
+                    <button onclick="clearLogs()" class="btn-text">Clear</button>
+                </div>
+                <div class="log-content" id="logContent">
+                    <div class="log-line">Ready to search...</div>
+                </div>
+            </div>
+
+            <!-- Results Grid -->
+            <div class="results-header">
+                <h2>Found Profiles <span id="resultCount">(0)</span></h2>
+            </div>
+
+            <div class="results-grid" id="resultsGrid">
+                <!-- Profile Cards will appear here -->
+            </div>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
