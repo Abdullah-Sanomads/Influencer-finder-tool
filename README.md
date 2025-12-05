@@ -8,7 +8,7 @@ This project was built with a clear vision to deliver reliable, scalable, and us
 
 Built By
 
-Abubakar
+Muhammad Abubakar
 Lead Developer responsible for the architecture, implementation, and delivery of this project.
 
 Idea & Process
